@@ -1,0 +1,98 @@
+;
+; MobileJoystick.inf
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=HIDClass
+ClassGuid={745a17a0-74d3-11d0-b6fe-00a0c90f57da}
+Provider=%ManufacturerName%
+CatalogFile=MobileJoystick.cat
+DriverVer=
+
+
+[DestinationDirs]
+DriverFiles = 12
+CoInstallerFiles = 11
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+MobileJoystickDriver.sys  = 1,,
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName%=DeviceList,NT$ARCH$
+
+[DeviceList.NT$ARCH$]
+%MobileJoystick.DeviceDesc%=MobileJoystickDevice, root\VID_DA90&PID_1234&REV_0100
+
+[MobileJoystickDevice.NT]
+CopyFiles=DriverFiles
+
+[DriverFiles]
+MobileJoystickDriver.sys
+
+;-------------- Device installation 
+[MobileJoystickDevice.NT.HW]
+AddReg = MobileJoysyickDeviceHWReg
+
+[MobileJoysyickDeviceHWReg]
+HKR,,"UpperFilters",0x00010000,"mshidkmdf"
+
+;-------------- Services installation
+[MobileJoystickDevice.NT.Services]
+AddService = MobileJoystick,0x00000002, MobileJoystickServiceInst
+
+[MobileJoystickServiceInst]
+DisplayName    = %MobileJoystick.SVCDESC%
+ServiceType	   = %SVC_KERNEL_DRIVER%
+StartType	   = %SVC_DEMAND_START%
+ErrorControl   = %SVC_ERROR_NORMAL%
+ServiceBinary  = %12%\MobileJoystick.sys
+
+[MsHidKmdfServiceInst]
+ServiceType	   = %SVC_KERNEL_DRIVER%
+StartType	   = %SVC_DEMAND_START%
+ErrorControl   = %SVC_ERROR_NORMAL%
+ServiceBinary  = %12%\mshidkmdf.sys
+LoadOrderGroup = PNP Filter
+
+;
+;--- MobileJoystick_Device Coinstaller installation ------
+;
+[MobileJoystickDevice.NT.CoInstallers]
+AddReg=CoInstallerReg
+CopyFiles=CoInstallerFiles
+
+[CoInstallerReg]
+HKR,,CoInstallers32,0x00010000, "WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll,WdfCoInstaller"
+
+[CoInstallerFiles]
+WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll
+
+[SourceDisksFiles]
+WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll=1 ; make sure the number matches with SourceDisksNames
+
+[MobileJoystickDevice.NT.Wdf]
+KmdfService =  MobileJoystick, MobileJoystick_wdfsect
+[MobileJoystick_wdfsect]
+KmdfLibraryVersion = $KMDFVERSION$
+
+;
+;--- Constants ----
+;
+
+[Strings]
+ManufacturerName="DamorK"
+DiskName = "MobileJoystick Installation Disk"
+MobileJoystick.DeviceDesc = "Mobile Joystick"
+MobileJoystick.SVCDESC = "MobileJoystick Service"
+
+SVC_KERNEL_DRIVER=1
+SVC_DEMAND_START=3
+SVC_ERROR_NORMAL=1

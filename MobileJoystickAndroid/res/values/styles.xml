@@ -1,0 +1,6 @@
+<resources>
+
+    <style name="MainTheme" parent="android:Theme.Black.NoTitleBar.Fullscreen" />
+    <style name="MenuTheme" parent="android:Theme.Black" />
+
+</resources>

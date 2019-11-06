@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="title_settings">Settings</string>
+    <string name="title_numofbuttons">Number of buttons</string>
+    <string name="title_calibration">Calibration</string>
+    
+    <string-array name="listview_settings">
+        <item>Change number of buttons</item>
+        <item>Calibration</item>
+    </string-array>
+    <string-array name="items_numofbuttons">
+        <item >2</item>
+        <item >4</item>
+        <item >6</item>
+    </string-array>
+    <integer-array name="items_numofbuttons_int">
+        <item >2</item>
+        <item >4</item>
+        <item >6</item>
+    </integer-array>
+    
+    <string name="text_calib_start">Use the button below to start calibration</string>
+    <string name="text_calib_centralpos">Leave your device centered,\nthen press the button</string>
+    <string name="text_calib_boundaries">Move your device to boundaries,\nthen press the button</string>
+    <string name="text_calib_finished">Operation completed successfully!</string>
+    <string name="btn_calibrate">Calibrate</string>
+    <string name="btn_next">Next</string>
+    
+</resources>

@@ -1,0 +1,16 @@
+.metadata/
+bin/
+release/
+debug/
+package/
+*.pdb
+*.user
+*.suo
+*.aux
+*.bbl
+*.dvi
+*.blg
+*.log
+*.toc
+*.synctex
+DvlErrLog.txt

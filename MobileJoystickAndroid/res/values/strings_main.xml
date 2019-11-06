@@ -1,0 +1,26 @@
+<resources>
+
+    <string name="app_name">MobileJoystick</string>
+    <string name="title_main">Mobile Joystick</string>
+    
+    <string name="menu_settings">Settings</string>
+    <string name="menu_connect">Connect with PC</string>
+    
+    <string name="toast_connected">Status: connected</string>
+    <string name="toast_unconnected">Status: unconnected</string>
+    <string name="toast_interrupted">Connection interrupted!</string>
+    
+    <string name="null_string"></string>
+    
+    <integer-array name="btn_colours">
+        <item>0xff124f16</item>
+        <item>0xff805c80</item>
+		<item>0xff437275</item>
+		<item>0xff6f6616</item>
+		<item>0xff545673</item>
+		<item>0xff996c6c</item>
+		<item>0xffffffff</item>
+		<item>0xffffffff</item>
+    </integer-array>
+
+</resources>

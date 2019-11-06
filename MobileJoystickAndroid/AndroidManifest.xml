@@ -1,0 +1,49 @@
+<manifest package="damork.mobilejoystick"
+    android:versionCode="1"
+    android:versionName="1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-sdk
+        android:minSdkVersion="10"
+        android:targetSdkVersion="15" />
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name" android:theme="@android:style/Theme.Black">
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_main"
+            android:theme="@style/MainTheme" android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_settings"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="damork.mobilejoystick.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ConnectActivity"
+            android:label="@string/title_connect"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="damork.mobilejoystick.MainActivity" />
+        </activity>
+        <activity
+            android:name=".CalibrationActivity"
+            android:label="@string/title_calibration"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="damork.mobilejoystick.SettingsActivity" />
+        </activity>
+    </application>
+
+</manifest>

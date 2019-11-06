@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_connect">Connect with PC</string>
+    <string name="text_connect_start">Press \'Connect\' to start listening for a new connection</string>
+    <string name="text_connect_listening">Listening for a new connection</string>
+    <string name="text_connect_failed">Unable to connect with PC</string>
+    <string name="text_connect_ok">Connection established</string>
+    <string name="btn_connect">Connect</string>
+    <string name="btn_disconnect">Disconnect</string>
+</resources>
